@@ -1,8 +1,12 @@
 import * as React from "react";
 import { VariableSizeList as List } from "react-window";
+import AutoSizer from "react-virtualized-auto-sizer";
 import styles from "./Table.module.scss";
+import IUser from "../../models/IUser";
 
-type Props = {};
+type Props = {
+  users: IUser[];
+};
 
 const Row = ({
   index,
@@ -12,17 +16,25 @@ const Row = ({
   style: React.CSSProperties;
 }) => (
   <div className={styles.text} style={style}>
-    Row {index}
+    {index}
   </div>
 );
 
-const Table = (props: Props) => {
+const Table = ({ users }: Props) => {
   return (
-    <div>
-      <List height={150} itemCount={1000} itemSize={() => 64} width={1300}>
-        {Row}
-      </List>
-    </div>
+    <AutoSizer>
+      {({ height, width }) => (
+        <List
+          className={styles.list}
+          height={height}
+          itemCount={1000}
+          itemSize={() => 64}
+          width={width}
+        >
+          {Row}
+        </List>
+      )}
+    </AutoSizer>
   );
 };
 
