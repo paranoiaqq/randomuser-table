@@ -1,11 +1,14 @@
 @import "../../styles/variables";
 @import "../../styles/normalize";
 
-.list{
-  //width: 300px;
+.container{
+  height: 1376px;
+  width: 896px;
+  background-color: $bgBlack;
+  border-radius: 16px;
+  color: $white
 }
 
-.text {
-  color: $textGrey;
-  font-size: 24px;
+.table{
+
 }

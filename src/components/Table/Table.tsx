@@ -1,5 +1,8 @@
 import * as React from "react";
-import { VariableSizeList as List } from "react-window";
+import {
+  ListChildComponentProps,
+  VariableSizeList as List,
+} from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import styles from "./Table.module.scss";
 import IUser from "../../models/IUser";
@@ -8,33 +11,36 @@ type Props = {
   users: IUser[];
 };
 
-const Row = ({
+const Row: React.FC<ListChildComponentProps<IUser[]>> = ({
   index,
   style,
-}: {
-  index: number;
-  style: React.CSSProperties;
-}) => (
-  <div className={styles.text} style={style}>
-    {index}
-  </div>
+  data,
+}) => {
+  return <div style={style}>{data[index].name.first}</div>;
+};
+
+const UserList = ({ users }: { users: IUser[] }) => (
+  <AutoSizer>
+    {({ height, width }) => (
+      <List
+        height={height}
+        itemCount={1000}
+        itemSize={() => 64}
+        width={width}
+        itemData={users}
+      >
+        {Row}
+      </List>
+    )}
+  </AutoSizer>
 );
 
 const Table = ({ users }: Props) => {
   return (
-    <AutoSizer>
-      {({ height, width }) => (
-        <List
-          className={styles.list}
-          height={height}
-          itemCount={1000}
-          itemSize={() => 64}
-          width={width}
-        >
-          {Row}
-        </List>
-      )}
-    </AutoSizer>
+    <div className={styles.container}>
+      <div className={styles.header}></div>
+      {users ? <UserList users={users} /> : "loading"}
+    </div>
   );
 };
 
