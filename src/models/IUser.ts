@@ -13,7 +13,7 @@ export default interface IUser {
     city: string;
     state: string;
     country: string;
-    postcode: string;
+    postcode: number;
     coordinates: {
       latitude: string;
       longitude: string;

@@ -1,4 +1,3 @@
-import IUser from "../models/IUser";
 import { useEffect, useState } from "react";
 
 export interface IResponse<T> {
