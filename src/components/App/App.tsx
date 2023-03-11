@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./App.module.scss";
 import Table from "../Table/Table";
-import IUser from "../../models/IUser";
 import useFetch, { IResponse } from "../../hooks/useFetch";
 import IFetchedUsers from "../../models/IFetchedUsers";
 
@@ -12,7 +11,7 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <Table users={response.data?.results} />
+      <Table users={response.data?.results} isLoading={response.loading} />
     </div>
   );
 }

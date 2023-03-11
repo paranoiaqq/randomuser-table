@@ -10,6 +10,7 @@ import LoadingSpinner from "../UI/LoadingSpinner/LoadingSpinner";
 
 type Props = {
   users: IUser[];
+  isLoading: Boolean;
 };
 
 const Row: React.FC<ListChildComponentProps<IUser[]>> = ({
@@ -36,11 +37,12 @@ const UserList = ({ users }: { users: IUser[] }) => (
   </AutoSizer>
 );
 
-const Table = ({ users }: Props) => {
+const Table = ({ users, isLoading }: Props) => {
   return (
-    <div className={styles.container}>
-      <div></div>
-      {users ? <UserList users={users} /> : <LoadingSpinner />}
+    <div className={styles.qwe}>
+      <div className={styles.container}>
+        {isLoading ? <LoadingSpinner /> : <UserList users={users} />}
+      </div>
     </div>
   );
 };
