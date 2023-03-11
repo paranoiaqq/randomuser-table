@@ -6,6 +6,7 @@ import {
 import AutoSizer from "react-virtualized-auto-sizer";
 import styles from "./Table.module.scss";
 import IUser from "../../models/IUser";
+import LoadingSpinner from "../UI/LoadingSpinner/LoadingSpinner";
 
 type Props = {
   users: IUser[];
@@ -38,8 +39,8 @@ const UserList = ({ users }: { users: IUser[] }) => (
 const Table = ({ users }: Props) => {
   return (
     <div className={styles.container}>
-      <div className={styles.header}></div>
-      {users ? <UserList users={users} /> : "loading"}
+      <div></div>
+      {users ? <UserList users={users} /> : <LoadingSpinner />}
     </div>
   );
 };

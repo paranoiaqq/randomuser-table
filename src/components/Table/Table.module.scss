@@ -2,11 +2,15 @@
 @import "../../styles/normalize";
 
 .container{
-  height: 1376px;
   width: 896px;
+  height: 496px;
   background-color: $bgBlack;
   border-radius: 16px;
   color: $white
+}
+
+.header{
+
 }
 
 .table{
