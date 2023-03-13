@@ -41,7 +41,7 @@
   position: absolute;
   background-color: rgba(32, 33, 40);
   width: 94px;
-  max-height: 920px;
+  max-height: 280px;
   overflow-y: auto;
   margin-top: 13px;
   border-radius: 16px;
@@ -69,6 +69,7 @@
 
   .btnsContainer {
     padding: 0 8px;
+    max-height: 258px;
 
     .btnContainer {
       width: 78px;

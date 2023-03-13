@@ -20,9 +20,16 @@ const nationalities = [
   "FR",
   "GB",
   "IE",
+  "IN",
   "IR",
-  "NO",
+  "MX",
   "NL",
+  "NO",
+  "NZ",
+  "RS",
+  "TR",
+  "UA",
+  "US",
 ];
 
 function App() {

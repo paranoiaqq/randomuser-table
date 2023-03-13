@@ -2,6 +2,7 @@ import * as React from "react";
 import styles from "./Filter.module.scss";
 import { useEffect, useRef, useState } from "react";
 import cross from "../../../assets/cross.svg";
+import useClickOutside from "../../../hooks/useClickOutside";
 
 type Props = {
   placeholder: string;
@@ -17,7 +18,9 @@ interface option {
 
 const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
   const dropRef = useRef<HTMLDivElement>(null);
+  const clickOutsideRef = useRef<HTMLDivElement>(null);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  useClickOutside(clickOutsideRef, clickOutsideHandler);
 
   useEffect(() => {
     if (selectedOptions.length > 0) {
@@ -45,6 +48,9 @@ const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
   const optionClickHandler = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
+    const drop = dropRef.current;
+    if (drop) drop.style.display = "none";
+
     const option = event.currentTarget.name;
     if (selectedOptions.find((item) => item === option)) {
       setSelectedOptions((prev) => prev.filter((item) => item !== option));
@@ -53,12 +59,23 @@ const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
     }
   };
 
-  const clearHandler = () => {
+  const clearHandler = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.stopPropagation();
+
     setSelectedOptions([]);
+
+    const drop = dropRef.current;
+    if (drop) drop.style.display = "none";
   };
 
+  function clickOutsideHandler() {
+    console.log("clicked");
+  }
+
   return (
-    <div className={styles.dropdown}>
+    <div ref={clickOutsideRef} className={styles.dropdown}>
       <button onClick={filterClickHandler} className={styles.dropbtn}>
         <div className={styles.optionsContainer}>
           <p>{placeholder}</p>
