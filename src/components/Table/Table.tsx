@@ -5,11 +5,6 @@ import styles from "./Table.module.scss";
 import IUser from "../../models/IUser";
 import LoadingSpinner from "../UI/LoadingSpinner/LoadingSpinner";
 
-type Props = {
-  users: IUser[];
-  isLoading: Boolean;
-};
-
 const Row: React.FC<ListChildComponentProps<IUser[]>> = ({
   index,
   style,
@@ -22,7 +17,7 @@ const Row: React.FC<ListChildComponentProps<IUser[]>> = ({
   };
 
   return (
-    <tr className={styles.row}>
+    <tr style={{ ...style, height: 61 - 8 }} className={styles.row}>
       <td className={styles.profile}>
         <div className={styles.imgContainer}>
           <img src={user.picture.thumbnail} alt="profile picture" />
@@ -52,22 +47,26 @@ const Row: React.FC<ListChildComponentProps<IUser[]>> = ({
 };
 
 const UserList = ({ users }: { users: IUser[] }) => (
-  <AutoSizer className={styles.scroll}>
+  <AutoSizer>
     {({ height, width }) => (
       <List
-        className={styles.scroll}
         height={height}
-        itemCount={1000}
+        itemCount={users.length}
         itemSize={61}
         width={width}
         itemData={users}
-        itemKey={(index, data) => data[index].id.value}
+        innerElementType={"tbody"}
       >
         {Row}
       </List>
     )}
   </AutoSizer>
 );
+
+type Props = {
+  users: IUser[];
+  isLoading: Boolean;
+};
 
 const Table = ({ users, isLoading }: Props) => {
   return (
