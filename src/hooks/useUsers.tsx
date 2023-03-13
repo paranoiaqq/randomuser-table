@@ -7,8 +7,6 @@ export const useFilteredUsers = (
   options: string[]
 ) => {
   return useMemo(() => {
-    console.log(filters, options);
-
     if (filters.length > 0) {
       return users.filter((user) => {
         let flag = true;

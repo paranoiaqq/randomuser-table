@@ -1,7 +1,6 @@
 import * as React from "react";
 import styles from "./Filter.module.scss";
 import { useEffect, useRef, useState } from "react";
-import IUser from "../../../models/IUser";
 import cross from "../../../assets/cross.svg";
 
 type Props = {

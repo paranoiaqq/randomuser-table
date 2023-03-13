@@ -27,7 +27,7 @@ const nationalities = [
 
 function App() {
   const response: IResponse<IFetchedUsers> = useFetch<IFetchedUsers>(
-    "https://randomuser.me/api/?results=50&exc=login,registered,cell"
+    "https://randomuser.me/api/?results=1000&exc=login,registered,cell"
   );
   const [users, setUsers] = useState<IUser[]>([]);
   const [genderFilters, setGenderFilters] = useState<string[]>([]);
