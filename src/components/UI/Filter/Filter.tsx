@@ -18,11 +18,8 @@ interface option {
 const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
   const dropRef = useRef<HTMLDivElement>(null);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  const [renderOptions, setRenderOptions] = useState<option[]>(getOptions());
 
   useEffect(() => {
-    setRenderOptions(getOptions());
-
     if (selectedOptions.length > 0) {
       setIsSelected(true);
     } else {
@@ -31,19 +28,6 @@ const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
 
     callback(selectedOptions);
   }, [selectedOptions]);
-
-  function getOptions() {
-    return [
-      ...selectedOptions.map((option) => {
-        return { value: option, isSelected: true };
-      }),
-      ...options
-        .filter((option) => !selectedOptions.find((item) => item === option))
-        .map((option) => {
-          return { value: option, isSelected: false };
-        }),
-    ];
-  }
 
   const filterClickHandler = () => {
     const drop = dropRef.current;
@@ -94,18 +78,35 @@ const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
           )}
         </div>
       </button>
+
       <div ref={dropRef} className={styles.dropdownContent}>
-        {renderOptions.map((option, index) => (
-          <div className={styles.btnContainer} key={index}>
-            <button
-              className={option.isSelected ? styles.selected : ""}
-              name={option.value}
-              onClick={optionClickHandler}
-            >
-              {option.value}
-            </button>
-          </div>
-        ))}
+        <div className={styles.btnsContainer}>
+          {selectedOptions.map((option, index, array) => (
+            <div className={styles.btnContainer} key={index}>
+              <button
+                className={styles.selected}
+                name={option}
+                onClick={optionClickHandler}
+              >
+                {option}
+              </button>
+            </div>
+          ))}
+          {selectedOptions.length > 0 ? <div className={styles.divider} /> : ""}
+        </div>
+
+        <div className={styles.btnsContainer}>
+          {options.map((option, index) => {
+            if (selectedOptions.indexOf(option) === -1)
+              return (
+                <div className={styles.btnContainer} key={index}>
+                  <button name={option} onClick={optionClickHandler}>
+                    {option}
+                  </button>
+                </div>
+              );
+          })}
+        </div>
       </div>
     </div>
   );

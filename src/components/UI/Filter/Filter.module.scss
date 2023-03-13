@@ -20,7 +20,7 @@
       margin: 0;
     }
 
-    .option{
+    .option {
       color: $white;
       font-weight: 600;
       margin-left: 0.4rem;
@@ -45,7 +45,7 @@
   overflow-y: auto;
   margin-top: 13px;
   border-radius: 16px;
-  padding: 8px 8px;
+  padding: 8px 0;
   box-shadow: inset 0 0 12px -4px rgba(207, 123, 90, 0.24);
   z-index: 1;
 
@@ -66,43 +66,56 @@
     background-color: $bodyBlack;
     box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.05);
   }
-}
 
-.btnContainer {
-  width: 78px;
-  height: 40px;
-  margin-bottom: 3px;
+  .btnsContainer {
+    padding: 0 8px;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+    .btnContainer {
+      width: 78px;
+      height: 40px;
+      margin-bottom: 3px;
+      position: relative;
 
-  button {
-    width: 100%;
-    line-height: 40px;
-    padding: 0 1rem 0;
-    text-align: left;
-    background: none;
-    border: none;
-    color: $white;
-    cursor: pointer;
-    border-radius: 16px;
-    font-weight: 600;
+      &:last-child {
+        margin-bottom: 0;
+      }
 
-    &:hover {
-      color: rgba(207, 123, 90, 0.5);
-      background-color: $bgBlack;
+      button {
+        width: 100%;
+        line-height: 40px;
+        padding: 0 1rem 0;
+        text-align: left;
+        background: none;
+        border: none;
+        color: $white;
+        cursor: pointer;
+        border-radius: 16px;
+        font-weight: 600;
+
+        &:hover {
+          color: rgba(207, 123, 90, 0.5);
+          background-color: $bgBlack;
+        }
+
+        &:focus {
+          border: none;
+          outline: none;
+        }
+      }
+
+      .selected {
+        color: $orange !important;
+      }
     }
 
-    &:focus {
-      border: none;
-      outline: none;
+    .divider {
+      width: 46px;
+      height: 1px;
+      background-color: #797675;
+      border-radius: 5px;
+      margin: 0.5rem auto;
     }
   }
-}
-
-.selected {
-  color: $orange !important;
 }
 
 .crossButton {
