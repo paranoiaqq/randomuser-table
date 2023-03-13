@@ -40,7 +40,8 @@ export const useUsers = (
         user.name.last.toLowerCase().includes(query.toLowerCase()) ||
         user.location.country.toLowerCase().includes(query.toLowerCase()) ||
         user.email.toLowerCase().includes(query.toLowerCase()) ||
-        user.phone.toLowerCase().includes(query.toLowerCase())
+        user.phone.toLowerCase().includes(query.toLowerCase()) ||
+        user.dob.date.toLowerCase().includes(query.toLowerCase())
     );
   }, [query, filteredUsers]);
 };
