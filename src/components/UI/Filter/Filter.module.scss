@@ -1,0 +1,133 @@
+@import "../../../styles/variables";
+@import "../../../styles/normalize";
+
+.dropbtn {
+  background-color: $bgBlack;
+  color: $textGrey;
+  font-weight: 400;
+  padding: 0 16px;
+  font-size: 0.875rem;
+  line-height: 32px;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+
+  .optionsContainer {
+    display: flex;
+    height: 2rem;
+
+    p {
+      margin: 0;
+    }
+
+    .option{
+      color: $white;
+      font-weight: 600;
+      margin-left: 0.4rem;
+    }
+  }
+
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  border: 2px solid rgba(207, 123, 90, 0.1);
+  box-sizing: border-box;
+  display: none;
+  position: absolute;
+  background-color: rgba(32, 33, 40);
+  width: 94px;
+  max-height: 920px;
+  overflow-y: auto;
+  margin-top: 13px;
+  border-radius: 16px;
+  padding: 8px 8px;
+  box-shadow: inset 0 0 12px -4px rgba(207, 123, 90, 0.24);
+  z-index: 1;
+
+  scrollbar-color: #d4aa70 #e4e4e4;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #8C8988;
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: $bodyBlack;
+    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.05);
+  }
+}
+
+.btnContainer {
+  width: 78px;
+  height: 40px;
+  margin-bottom: 3px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  button {
+    width: 100%;
+    line-height: 40px;
+    padding: 0 1rem 0;
+    text-align: left;
+    background: none;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    border-radius: 16px;
+    font-weight: 600;
+
+    &:hover {
+      color: rgba(207, 123, 90, 0.5);
+      background-color: $bgBlack;
+    }
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.selected {
+  color: $orange !important;
+
+  //&:last-child:after {
+  //  content: "";
+  //  display: block;
+  //  position: relative;
+  //  width: 46px;
+  //  height: 1px;
+  //  margin: 0.5rem 0;
+  //  background-color: rgba(121, 118, 117, 0.5);
+  //}
+}
+
+.crossButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  background: none;
+  line-height: 32px;
+  padding: 0;
+  margin-left: 0.5rem;
+  cursor: pointer;
+
+  img {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+}
