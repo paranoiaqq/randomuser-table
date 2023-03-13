@@ -50,6 +50,8 @@ const UserList = ({ users }: { users: IUser[] }) => (
   <AutoSizer>
     {({ height, width }) => (
       <List
+        style={{ overflowX: "clip" }}
+        className={`${styles.scroll}`}
         height={height}
         itemCount={users.length}
         itemSize={61}
@@ -71,7 +73,7 @@ type Props = {
 const Table = ({ users, isLoading }: Props) => {
   return (
     <div className={styles.container}>
-      <div className={styles.tableResponsive}>
+      <div className={`${styles.tableResponsive} ${styles.scroll}`}>
         <table>
           <thead className={styles.header}>
             <tr>
@@ -86,11 +88,15 @@ const Table = ({ users, isLoading }: Props) => {
           </thead>
 
           {isLoading ? (
-            <div className={styles.spinnerContainer}>
+            <div className={styles.centerBlock}>
               <LoadingSpinner />
             </div>
-          ) : (
+          ) : users?.length > 0 ? (
             <UserList users={users} />
+          ) : (
+            <div className={styles.centerBlock}>
+              <p className={styles.centerText}>No matches...</p>
+            </div>
           )}
         </table>
       </div>

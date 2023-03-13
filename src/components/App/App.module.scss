@@ -1,10 +1,34 @@
 @import "../../styles/variables";
 @import "../../styles/normalize";
 
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 32px;
+body {
+  background-color: $bodyBlack;
 }
 
+.container {
+  max-width: 1376px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 32px auto 0;
+  display: flex;
+  background-color: rgba(30, 32, 39, 0.7);
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(207, 123, 90, 0.2);
+  border-radius: 40px;
+  padding: 40px 32px;
+}
+
+.searchContainer {
+  margin-bottom: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: start;
+}
+
+.filterContainer {
+  margin-bottom: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: start;
+}
