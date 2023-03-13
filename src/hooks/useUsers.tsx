@@ -39,7 +39,6 @@ export const useUsers = (
         user.name.first.toLowerCase().includes(query.toLowerCase()) ||
         user.name.last.toLowerCase().includes(query.toLowerCase()) ||
         user.location.country.toLowerCase().includes(query.toLowerCase()) ||
-        user.nat.toLowerCase().includes(query.toLowerCase()) ||
         user.email.toLowerCase().includes(query.toLowerCase()) ||
         user.phone.toLowerCase().includes(query.toLowerCase())
     );
