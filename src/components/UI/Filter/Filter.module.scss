@@ -5,12 +5,12 @@
   background-color: $bgBlack;
   color: $textGrey;
   font-weight: 400;
-  padding: 0 16px;
+  padding: 0 1rem;
   font-size: 0.875rem;
-  line-height: 32px;
+  line-height: 2rem;
   border: none;
-  cursor: pointer;
   border-radius: 40px;
+  cursor: pointer;
 
   .optionsContainer {
     display: flex;
@@ -35,23 +35,23 @@
 }
 
 .dropdownContent {
+  position: absolute;
+  display: none;
   border: 2px solid rgba(207, 123, 90, 0.1);
   box-sizing: border-box;
-  display: none;
-  position: absolute;
-  background-color: rgba(32, 33, 40);
   width: 94px;
   max-height: 280px;
-  overflow-y: clip;
   margin-top: 13px;
+  padding: 0.5rem 0;
   border-radius: 16px;
-  padding: 8px 0;
   box-shadow: inset 0 0 12px -4px rgba(207, 123, 90, 0.24);
+  background-color: rgba(32, 33, 40);
   z-index: 1;
+  overflow-y: clip;
 
   .btnsContainer {
-    padding: 0 8px;
     max-height: 280px;
+    padding: 0 0.5rem;
     overflow-y: auto;
 
     scrollbar-color: #d4aa70 #e4e4e4;
@@ -126,7 +126,7 @@
   border: none;
   outline: none;
   background: none;
-  line-height: 32px;
+  line-height: 2rem;
   padding: 0;
   margin-left: 0.5rem;
   cursor: pointer;

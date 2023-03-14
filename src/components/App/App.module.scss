@@ -6,29 +6,30 @@ body {
 }
 
 .container {
-  max-width: 1376px;
   box-sizing: border-box;
+  max-width: 1376px;
   width: 100%;
-  margin: 32px auto 0;
   display: flex;
-  background-color: rgba(30, 32, 39, 0.7);
   flex-direction: column;
   align-items: center;
+  margin: 32px auto 0;
+  padding: 40px 32px;
+
+  background-color: rgba(30, 32, 39, 0.7);
   border: 1px solid rgba(207, 123, 90, 0.2);
   border-radius: 40px;
-  padding: 40px 32px;
 }
 
 .searchContainer {
-  margin-bottom: 20px;
   display: flex;
-  width: 100%;
   justify-content: start;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .filterContainer {
-  margin-bottom: 20px;
   display: flex;
-  width: 100%;
   justify-content: start;
+  width: 100%;
+  margin-bottom: 20px;
 }

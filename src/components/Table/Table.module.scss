@@ -7,8 +7,8 @@
 }
 
 .container {
-  width: 100%;
   max-width: 1312px;
+  width: 100%;
   height: 604px;
   background-color: $bgBlack;
   border-radius: 16px;
@@ -28,10 +28,10 @@
 table {
   width: 99.9%;
   height: 100%;
-  padding: 0 12px;
-  overflow: clip;
+  padding: 0 0.75rem;
   text-align: left;
   font-size: $text;
+  overflow: clip;
 }
 
 .tableResponsive {
@@ -43,31 +43,31 @@ table {
 
   th:nth-child(1), td:nth-child(1) {
     min-width: 260px;
-    padding: 0 8px;
+    padding: 0 0.5rem;
   }
   th:nth-child(2), td:nth-child(2) {
     min-width: 139px;
-    padding-left: 8px;
+    padding-left: 0.5rem;
   }
   th:nth-child(3), td:nth-child(3) {
     min-width: 270px;
-    padding-left: 8px;
+    padding-left: 0.5rem;
   }
   th:nth-child(4), td:nth-child(4) {
     min-width: 89px;
-    padding-left: 8px;
+    padding-left: 0.5rem;
   }
   th:nth-child(5), td:nth-child(5) {
     min-width: 100px;
-    padding-left: 39px;
+    padding-left: 2.438rem;
   }
   th:nth-child(6), td:nth-child(6) {
     min-width: 102px;
-    padding-left: 8px;
+    padding-left: 0.5rem;
   }
   th:nth-child(7), td:nth-child(7) {
     min-width: 132px;
-    padding-left: 8px;
+    padding-left: 0.5rem;
   }
 }
 
@@ -75,10 +75,10 @@ table {
   box-sizing: border-box;
   display: flex;
   height: 53px;
-  background-color: $buttonBgBlack;
   padding: 0 8px;
   border-radius: 12px;
   border: 1px solid rgba(207, 123, 90, 0.2);
+  background-color: $buttonBgBlack;
 
   .profile{
     display: flex;
@@ -90,21 +90,21 @@ table {
       margin-right: 13px;
 
       img {
+        box-sizing: border-box;
         width: 36px;
         height: 36px;
-        border-radius: 50%;
-        box-sizing: border-box;
         border: 2px solid $orange;
+        border-radius: 50%;
       }
     }
 
   }
 
   p {
-    font-weight: 600;
-    color: $white;
     display: flex;
     align-items: center;
+    font-weight: 600;
+    color: $white;
   }
 
   td {
