@@ -7,7 +7,7 @@ import useClickOutside from "../../../hooks/useClickOutside";
 type Props = {
   placeholder: string;
   options: string[];
-  callback: React.Dispatch<React.SetStateAction<string[]>>;
+  setFilters: React.Dispatch<React.SetStateAction<string[]>>;
   setIsSelected: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
@@ -16,7 +16,7 @@ interface option {
   isSelected: boolean;
 }
 
-const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
+const Filter = ({ placeholder, options, setFilters, setIsSelected }: Props) => {
   const dropRef = useRef<HTMLDivElement>(null);
   const clickOutsideRef = useRef<HTMLDivElement>(null);
   const [isOpened, setIsOpened] = useState(false);
@@ -30,7 +30,7 @@ const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
       setIsSelected(false);
     }
 
-    callback(selectedOptions);
+    setFilters(selectedOptions);
   }, [selectedOptions]);
 
   const filterClickHandler = () => {

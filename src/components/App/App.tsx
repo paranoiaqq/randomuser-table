@@ -39,14 +39,14 @@ function App() {
   const [users, setUsers] = useState<IUser[]>([]);
   const [genderFilters, setGenderFilters] = useState<string[]>([]);
   const [natFilters, setNatFilters] = useState<string[]>([]);
-  const [query, setQuery] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [natIsSelected, setNatIsSelected] = useState<boolean>(false);
   const [genderIsSelected, setGenderIsSelected] = useState<boolean>(false);
   const [options, setOptions] = useState<string[]>([]);
   const filteredAndSearchedUsers = useUsers(
     users,
     [...genderFilters, ...natFilters],
-    query,
+    searchQuery,
     options
   );
 
@@ -68,7 +68,7 @@ function App() {
   return (
     <div className={styles.container}>
       <div className={styles.searchContainer}>
-        <Search callback={setQuery} />
+        <Search callback={setSearchQuery} />
       </div>
 
       <div className={styles.filterContainer}>
@@ -76,7 +76,7 @@ function App() {
           <Filter
             placeholder="Gender equal"
             options={["male", "female"]}
-            callback={setGenderFilters}
+            setFilters={setGenderFilters}
             setIsSelected={setGenderIsSelected}
           />
         </div>
@@ -84,7 +84,7 @@ function App() {
         <Filter
           placeholder={"Nationality"}
           options={nationalities}
-          callback={setNatFilters}
+          setFilters={setNatFilters}
           setIsSelected={setNatIsSelected}
         />
       </div>
