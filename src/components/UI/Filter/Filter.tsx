@@ -19,8 +19,9 @@ interface option {
 const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
   const dropRef = useRef<HTMLDivElement>(null);
   const clickOutsideRef = useRef<HTMLDivElement>(null);
+  const [isOpened, setIsOpened] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  useClickOutside(clickOutsideRef, clickOutsideHandler);
+  useClickOutside(clickOutsideRef, clickOutsideHandler, isOpened);
 
   useEffect(() => {
     if (selectedOptions.length > 0) {
@@ -36,10 +37,12 @@ const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
     const drop = dropRef.current;
     if (drop) {
       if (drop.style.display === "none" || !drop.style.display) {
+        setIsOpened(true);
         drop.style.display = "flex";
         drop.style.flexDirection = "column";
         drop.style.justifyContent = "center";
       } else {
+        setIsOpened(false);
         drop.style.display = "none";
       }
     }
@@ -71,7 +74,8 @@ const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
   };
 
   function clickOutsideHandler() {
-    console.log("clicked");
+    const drop = dropRef.current;
+    if (drop) drop.style.display = "none";
   }
 
   return (
