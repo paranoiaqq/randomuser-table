@@ -1,37 +1,37 @@
 @import "../../../styles/variables";
 @import "../../../styles/normalize";
 
-.dropbtn {
-  background-color: $bgBlack;
-  color: $textGrey;
-  font-weight: 400;
-  padding: 0 1rem;
-  font-size: 0.875rem;
-  line-height: 2rem;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-
-  .optionsContainer {
-    display: flex;
-    height: 2rem;
-
-    p {
-      margin: 0;
-    }
-
-    .option {
-      color: $white;
-      font-weight: 600;
-      margin-left: 0.4rem;
-    }
-  }
-
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
+
+  .dropbtn {
+    background-color: $bgBlack;
+    color: $textGrey;
+    font-weight: 400;
+    padding: 0 1rem;
+    font-size: 0.875rem;
+    line-height: 2rem;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+
+    .optionsContainer {
+      display: flex;
+      height: 2rem;
+
+      p {
+        margin: 0;
+      }
+
+      .option {
+        color: $white;
+        font-weight: 600;
+        margin-left: 0.4rem;
+      }
+    }
+  }
 }
 
 .dropdownContent {
