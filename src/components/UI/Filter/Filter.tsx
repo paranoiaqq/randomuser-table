@@ -110,9 +110,7 @@ const Filter = ({ placeholder, options, callback, setIsSelected }: Props) => {
             </div>
           ))}
           {selectedOptions.length > 0 ? <div className={styles.divider} /> : ""}
-        </div>
 
-        <div className={styles.btnsContainer}>
           {options.map((option, index) => {
             if (selectedOptions.indexOf(option) === -1)
               return (
